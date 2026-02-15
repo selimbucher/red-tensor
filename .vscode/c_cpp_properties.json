@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "NixOS RDNA 4",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:ROCM_PATH}/include",
+                "${env:CLANG_H_PATH}",
+                "${env:HIP_CLANG_PATH}",
+                "${env:CLANG_RESOURCE_DIR}"
+            ],
+            "defines": [
+                "__HIP_PLATFORM_AMD__",
+                "__HIP__"
+            ],
+            "compilerPath": "${env:HIP_CLANG_PATH}/clang++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}

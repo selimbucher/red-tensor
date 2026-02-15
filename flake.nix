@@ -46,7 +46,9 @@
           # Note: The join puts it at $ROCM_PATH/amdgcn/bitcode
           export DEVICE_LIB_PATH=${rocmEnv}/amdgcn/bitcode
           export HIP_DEVICE_LIB_PATH=${rocmEnv}/amdgcn/bitcode
-
+          export CLANG_RESOURCE_DIR="$(hipcc -print-resource-dir)"
+          export CLANG_H_PATH="$CLANG_RESOURCE_DIR/include"
+          
           echo "🚀 RDNA 4 Environment Loaded"
           echo "ROCM_PATH: $ROCM_PATH"
         '';

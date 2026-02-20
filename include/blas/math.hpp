@@ -1,7 +1,9 @@
 #pragma once
 
 enum class MatMulMode {
-    Naive       // The simple, slow version
+    Naive,       // The simple, slow version
+    LDS,          // Using shared memory
+    Optimized    // The best version 
 };
 
 // Computes C = alpha * (A * B) + beta * C

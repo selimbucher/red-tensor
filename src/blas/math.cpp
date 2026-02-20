@@ -1,4 +1,5 @@
 #include "blas/kernels/naive.hpp"
+#include "blas/kernels/lds.hpp"
 #include "blas/math.hpp"
 #include <iostream>
 
@@ -8,6 +9,10 @@ void gpu_matmul(const T* A, const T* B, T* C, T alpha, T beta, int M, int N, int
     {
     case MatMulMode::Naive:
         matmul_naive(A, B, C, alpha, beta, M, N, K);
+        return;
+
+    case MatMulMode::LDS:
+        matmul_lds(A, B, C, alpha, beta, M, N, K);
         return;
     
     default:

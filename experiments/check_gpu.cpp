@@ -27,6 +27,7 @@ int main() {
         std::cout << "  VRAM: " << props.totalGlobalMem / (1024*1024) << " MB" << std::endl;
         std::cout << "  Wavefront Size: " << props.warpSize << std::endl;
         std::cout << "  Architecture: " << props.gcnArchName << std::endl;
-    }
+        std::cout << "  Total LDS (Shared Memory) per block: " << props.sharedMemPerBlock << " bytes or " << props.sharedMemPerBlock / 1024.0 << "KB";
+        std::cout << "  Total LDS per CU:    " << props.maxSharedMemoryPerMultiProcessor / 1024 << " KB"
     return 0;
 }

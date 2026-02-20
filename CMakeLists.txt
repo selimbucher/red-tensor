@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(RedGradient LANGUAGES CXX HIP)
+project(RedTensor LANGUAGES CXX HIP)
 
 # Dependency Management
 include(FetchContent)

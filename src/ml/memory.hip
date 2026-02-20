@@ -14,7 +14,7 @@ void* allocate_device(size_t bytes) {
 
 void free_device(void* ptr) {
     if (ptr) {
-        hipFree(ptr);
+        HIP_CHECK(hipFree(ptr));
     }
 }
 

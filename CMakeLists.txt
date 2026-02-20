@@ -1,16 +1,13 @@
 cmake_minimum_required(VERSION 3.21)
 project(RedTensor LANGUAGES CXX HIP)
 
-# Dependency Management
+# Download Doctest for testing
 include(FetchContent)
-
 FetchContent_Declare(
     doctest
     GIT_REPOSITORY https://github.com/doctest/doctest.git
     GIT_TAG        v2.4.12  # Pin a specific version for stability
 )
-
-# Download Doctest
 FetchContent_MakeAvailable(doctest)
 
 # Setup Core Library
@@ -19,7 +16,7 @@ add_library(core_ml ${SRC_FILES})
 target_include_directories(core_ml PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Setup Tests
-file(GLOB TEST_SOURCES "tests/*.hip")
+file(GLOB TEST_SOURCES "tests/*.hip" "tests/*.cpp")
 
 foreach(test_source ${TEST_SOURCES})
     get_filename_component(test_name ${test_source} NAME_WE)

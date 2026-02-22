@@ -23,11 +23,15 @@ int main() {
         HIP_CHECK(hipGetDeviceProperties(&props, i));
         
         std::cout << "\nDevice " << i << ": " << props.name << std::endl;
-        std::cout << "  Compute Units: " << props.multiProcessorCount << std::endl;
         std::cout << "  VRAM: " << props.totalGlobalMem / (1024*1024) << " MB" << std::endl;
-        std::cout << "  Wavefront Size: " << props.warpSize << std::endl;
         std::cout << "  Architecture: " << props.gcnArchName << std::endl;
-        std::cout << "  Total LDS (Shared Memory) per block: " << props.sharedMemPerBlock << " bytes or " << props.sharedMemPerBlock / 1024.0 << "KB";
-        std::cout << "  Total LDS per CU:    " << props.maxSharedMemoryPerMultiProcessor / 1024 << " KB"
+        std::cout << "  Compute Units: " << props.multiProcessorCount << std::endl;
+        std::cout << "  Wavefront Size: " << props.warpSize << std::endl;
+        std::cout << "  Threads per CU: " << props.maxThreadsPerMultiProcessor << std::endl;
+        std::cout << "  LDS per block: " << props.sharedMemPerBlock / 1024.0 << " KB" << std::endl;
+        std::cout << "  LDS per CU: " << props.maxSharedMemoryPerMultiProcessor / 1024.0 << " KB" << std::endl;
+        std::cout << "  Regs per Block: " << props.regsPerBlock * sizeof(float) / 1024.0 << " KB" << std::endl;
+        std::cout << "  Regs per CU: " << props.regsPerMultiprocessor * sizeof(float) / 1024.0 << " KB" << std::endl;
+        }
     return 0;
 }
